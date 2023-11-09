@@ -3,11 +3,11 @@ name: springboot-mysql-compose
 
 services:
   app:
-    container_name: khalid-springboot
+    container_name: cuongdq9131-springboot
     build:
       context: .
       dockerfile: ./Dockerfile2
-    image: khaliddinh/springboot
+    image: cuongdq9131/springboot
     ports:
       - "8082:8080"
     # restart: on-failure
@@ -18,13 +18,13 @@ services:
       - java-app
 
   mysql:
-    container_name: khalid-java-mysql
+    container_name: cuongdq9131-java-mysql
     image: "mysql:8.0"
     environment:
-      MYSQL_ROOT_PASSWORD: password123_DONG
+      MYSQL_ROOT_PASSWORD: 123456789@
       MYSQL_DATABASE: db_example
-      MYSQL_USER: khalid
-      MYSQL_PASSWORD: password123_DONG
+      MYSQL_USER: cuongdq9131
+      MYSQL_PASSWORD: 123456789@
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3306"]
       interval: 10s
@@ -32,12 +32,12 @@ services:
       retries: 3
       start_period: 30s
     volumes:
-      - khalid-java-mysql-data:/var/lib/mysql
+      - cuongdq9131-java-mysql-data:/var/lib/mysql
     networks:
       - java-app
 
 volumes:
-  khalid-java-mysql-data:
+  cuongdq9131-java-mysql-data:
 networks:
   java-app:
     name: java-app
